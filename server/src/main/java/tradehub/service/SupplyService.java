@@ -20,7 +20,7 @@ public class SupplyService {
 
   public void saveSupply(Supply supply) {
     supply.setSupplyId(UUID.randomUUID().toString());
-    
+
     String stmt = String.format("""
       INSERT INTO `tradehub.supply` (supply_id, party_id, title, price, description, embedding)
       VALUES ('%s', '%s', '%s', %f, '%s', NULL)
@@ -29,7 +29,8 @@ public class SupplyService {
       supply.getPartyId(), 
       supply.getTitle(), 
       supply.getPrice(), 
-      supply.getDescription()
+      supply.getDescription(),
+      supply.getEmbedding().toString() // replace NULL with %s if embeddings created by client
     );
 
     bqClient.execute(stmt);

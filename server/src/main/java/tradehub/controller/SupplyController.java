@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 import tradehub.model.Supply;
 import tradehub.service.SupplyService;
@@ -22,11 +24,14 @@ public class SupplyController {
   private static final Logger logger = LoggerFactory.getLogger(SupplyController.class);
 
   @PostMapping
-  public ResponseEntity<Void> createSupply(@RequestBody Supply supply) {
+  public ResponseEntity<Map<String,Object>> createSupply(@RequestBody Supply supply) {
+    Map<String,Object> response = new HashMap<>();
+
     try {
-      Supply mysupply = new Supply("1", "2", "banana", 23.22, "banana bread", null);
-      supplyService.saveSupply(mysupply);
-      return ResponseEntity.status(HttpStatus.CREATED).build();
+      supplyService.saveSupply(supply);
+
+      response.put("supplyId", "2244"); 
+      return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
     catch (Exception e) {
       logger.error("Error creating supply", e);
