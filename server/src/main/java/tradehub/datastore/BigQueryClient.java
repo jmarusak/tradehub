@@ -1,4 +1,4 @@
-package tradehub.db;
+package tradehub.datastore;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ public class BigQueryClient {
   @Autowired
   private BigQuery bigQuery;
 
-  public TableResult query(String query) {
+  public TableResult execute(String query) {
     QueryJobConfiguration queryConfig = QueryJobConfiguration.newBuilder(query).build();
 
     TableResult result;

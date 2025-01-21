@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.google.cloud.bigquery.TableResult;
 
 import tradehub.model.Party;
-import tradehub.db.BigQueryClient;
+import tradehub.datastore.BigQueryClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class PartyService {
   private BigQueryClient bqClient;
 
   public List<Party> getAllParties() {
-    TableResult result = bqClient.query("SELECT * FROM tradehub.party");
+    TableResult result = bqClient.execute("SELECT * FROM tradehub.party");
 
     List<Party> parties = new ArrayList<>();
     result.iterateAll().forEach(row -> {
