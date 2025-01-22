@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.google.cloud.bigquery.TableResult;
 
 import tradehub.model.Supply;
-import tradehub.datastore.BigQueryClient;
+import tradehub.integration.BigQueryClient;
 
 import java.util.ArrayList;
 import java.util.List;

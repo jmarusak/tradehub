@@ -1,4 +1,4 @@
-package tradehub.datastore;
+package tradehub.integration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

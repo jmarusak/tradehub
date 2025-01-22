@@ -9,7 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
+import tradehub.model.Prompt;
 import tradehub.model.Embedding;
 import tradehub.service.EmbeddingService;
 
@@ -21,14 +24,18 @@ public class EmbeddingController {
   private EmbeddingService embeddingService;
   private static final Logger logger = LoggerFactory.getLogger(EmbeddingController.class);
 
-  @GetMapping
-  public ResponseEntity<Embedding> getEmbedding() {
+  @PostMapping
+  public ResponseEntity<Map<String,Object>> createEmbedding(@RequestBody Prompt prompt) {
+    Map<String,Object> response = new HashMap<>();
+
     try {
-      Embedding embedding = embeddingService.getEmbedding("banana bread");
-      return ResponseEntity.ok(embedding);
+      Embedding embedding = embeddingService.createEmbedding(prompt.getText());
+
+      response.put("vector", embedding.getVector()); 
+      return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
     catch (Exception e) {
-      logger.error("Error retrieveing embeddings", e);
+      logger.error("Error creating supply", e);
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
   }

@@ -13,7 +13,7 @@ public class BigQueryConfig {
   @Bean
   public BigQuery bigQuery() throws BigQueryException {
    
-    String projectId = System.getenv("GOOGLE_CLOUD_PROJECT");
+    String project = System.getenv("GOOGLE_CLOUD_PROJECT");
     BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
     return bigquery;
   }
