@@ -23,14 +23,14 @@ public class SupplyService {
 
     String stmt = String.format("""
       INSERT INTO `tradehub.supply` (supply_id, party_id, title, price, description, embedding)
-      VALUES ('%s', '%s', '%s', %f, '%s', NULL)
+      VALUES ('%s', '%s', '%s', %f, '%s', %s)
       """, 
       supply.getSupplyId(), 
       supply.getPartyId(), 
       supply.getTitle(), 
       supply.getPrice(), 
       supply.getDescription(),
-      supply.getEmbedding().toString() // replace NULL with %s if embeddings created by client
+      supply.getEmbedding().toString()
     );
 
     bqClient.execute(stmt);
