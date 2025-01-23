@@ -9,38 +9,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tradehub.model.Supply;
-import tradehub.service.SupplyService;
+import tradehub.model.Demand;
+import tradehub.service.DemandService;
 
 @RestController
-@RequestMapping("/api/supplies")
-public class SupplyController {
-  private static final Logger logger = LoggerFactory.getLogger(SupplyController.class);
+@RequestMapping("/api/demands")
+public class DemandController {
+  private static final Logger logger = LoggerFactory.getLogger(DemandController.class);
 
-  @Autowired private SupplyService supplyService;
+  @Autowired private DemandService demandService;
 
   @PostMapping
-  public ResponseEntity<Map<String, Object>> createSupply(@RequestBody Supply supply) {
+  public ResponseEntity<Map<String, Object>> createDemand(@RequestBody Demand demand) {
     Map<String, Object> response = new HashMap<>();
 
     try {
-      supplyService.saveSupply(supply);
+      demandService.saveDemand(demand);
 
-      response.put("supplyId", "OK");
+      response.put("demandId", "OK");
       return ResponseEntity.status(HttpStatus.CREATED).body(response);
     } catch (Exception e) {
-      logger.error("Error creating supply", e);
+      logger.error("Error creating demand", e);
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
   }
 
   @GetMapping
-  public ResponseEntity<List<Supply>> getAllSupplies() {
+  public ResponseEntity<List<Demand>> getAllDemands() {
     try {
-      List<Supply> supplies = supplyService.getAllSupplies();
-      return ResponseEntity.ok(supplies);
+      List<Demand> demands = demandService.getAllSupplies();
+      return ResponseEntity.ok(demands);
     } catch (Exception e) {
-      logger.error("Error retrieving supplies", e);
+      logger.error("Error retrieving demands", e);
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
   }

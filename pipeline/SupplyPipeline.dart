@@ -6,8 +6,8 @@ Future<List<dynamic>> extract(String filename) async {
   final file = File(filename);
   String text = await file.readAsString();
 
-  List<dynamic> list = jsonDecode(text);
-  return list;
+  List<dynamic> data = jsonDecode(text);
+  return data;
 }
 
 Future<List<double>> transform(String endpoint, Map<String, String> jsonData) async {
@@ -39,15 +39,15 @@ Future<List<double>> transform(String endpoint, Map<String, String> jsonData) as
   return embedding;
 }
 
-void load(String endpoint, String title, String description, List<double> embedding) async {
+void load(String endpoint, Map<String, dynamic> row, List<double> embedding) async {
   final url = Uri.parse('$endpoint/supplies');
   
   final jsonData = {
     "supplyId": "",
-    "partyId": "",
-    "title": title,
+    "partyId": row["partyId"],
+    "title": row["title"],
     "price": 10.1,
-    "description": description,
+    "description": row["description"],
     "embedding": embedding
   };
 
@@ -73,10 +73,10 @@ void load(String endpoint, String title, String description, List<double> embedd
 void main() async {
   final endpoint = 'http://localhost:8080/api';
 
-  final json = await extract('furniture.json');
+  final data = await extract('supplies.json');
   
-  for(var item in json) {
-    final embedding = await transform(endpoint, {"text": item["description"]});
-    load(endpoint, item["title"], item["description"], embedding);
+  for(var row in data) {
+    final embedding = await transform(endpoint, {"text": row["description"]});
+    load(endpoint, row, embedding);
   }
 }

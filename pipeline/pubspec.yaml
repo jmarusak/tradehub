@@ -1,0 +1,7 @@
+name: pipeline
+
+environment:
+  sdk: '^3.6.0'
+
+dependencies:
+  http: ^1.0.0

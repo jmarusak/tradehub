@@ -28,7 +28,7 @@ public class VertexAiClient {
     String endpoint = "us-central1-aiplatform.googleapis.com:443";
     String model = "text-embedding-005";
     String task = "SEMANTIC_SIMILARITY";
-    int outputDimensionality = 128;
+    int outputDimensionality = 256;
     
     Matcher matcher = Pattern.compile("^(?<Location>\\w+-\\w+)").matcher(endpoint);
     String location = matcher.matches() ? matcher.group("Location") : "us-central1";

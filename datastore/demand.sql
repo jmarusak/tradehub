@@ -1,5 +1,5 @@
-create or replace table `tradehub.supply` (
-  supply_id string,
+create or replace table `tradehub.demand` (
+  demand_id string,
   party_id string,
   title string,
   price float64,

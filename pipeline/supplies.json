@@ -1,0 +1,12 @@
+[
+  {"partyId":"emily.roberts@example.com","title":"Sofa","description":"A comfortable three-seater sofa with plush cushions and a modern design."},
+  {"partyId":"emily.roberts@example.com","title":"Dining Table","description":"A large wooden dining table that seats up to six people, perfect for family meals."},
+  {"partyId":"emily.roberts@example.com","title":"Office Chair","description":"An ergonomic office chair with adjustable height and lumbar support for long hours of work."},
+  {"partyId":"emily.roberts@example.com","title":"Bookshelf","description":"A tall bookshelf with five spacious shelves for organizing books and decor items."},
+  {"partyId":"emily.roberts@example.com","title":"Coffee Table","description":"A stylish coffee table with a tempered glass top and a lower storage shelf."},
+  {"partyId":"emily.roberts@example.com","title":"Bed Frame","description":"A sturdy queen-sized bed frame with a sleek upholstered headboard."},
+  {"partyId":"emily.roberts@example.com","title":"Wardrobe","description":"A spacious two-door wardrobe with hanging space and drawers for clothes storage."},
+  {"partyId":"emily.roberts@example.com","title":"TV Stand","description":"A modern TV stand with open shelving and cable management features."},
+  {"partyId":"emily.roberts@example.com","title":"Armchair","description":"A cozy armchair with padded armrests and a reclining function for added comfort."},
+  {"partyId":"emily.roberts@example.com","title":"Bar Stool","description":"A set of two bar stools with a minimalist design and adjustable height."}
+]

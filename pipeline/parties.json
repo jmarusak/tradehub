@@ -1,0 +1,22 @@
+[
+  {"partyId": "johndoe@example.com", "name": "John Doe"},
+  {"partyId": "janedoe@example.com", "name": "Jane Doe"},
+  {"partyId": "brian.smith@example.com", "name": "Brian Smith"},
+  {"partyId": "susan.lee@example.com", "name": "Susan Lee"},
+  {"partyId": "mike.jones@example.com", "name": "Mike Jones"},
+  {"partyId": "alice.wang@example.com", "name": "Alice Wang"},
+  {"partyId": "kevin.miller@example.com", "name": "Kevin Miller"},
+  {"partyId": "emily.roberts@example.com", "name": "Emily Roberts"},
+  {"partyId": "william.johnson@example.com", "name": "William Johnson"},
+  {"partyId": "linda.brown@example.com", "name": "Linda Brown"},
+  {"partyId": "david.white@example.com", "name": "David White"},
+  {"partyId": "lucy.lee@example.com", "name": "Lucy Lee"},
+  {"partyId": "charles.garcia@example.com", "name": "Charles Garcia"},
+  {"partyId": "nancy.chen@example.com", "name": "Nancy Chen"},
+  {"partyId": "joseph.martin@example.com", "name": "Joseph Martin"},
+  {"partyId": "sandra.taylor@example.com", "name": "Sandra Taylor"},
+  {"partyId": "paul.harris@example.com", "name": "Paul Harris"},
+  {"partyId": "sophie.davis@example.com", "name": "Sophie Davis"},
+  {"partyId": "alex.smith@example.com", "name": "Alex Smith"},
+  {"partyId": "lisa.evans@example.com", "name": "Lisa Evans"}
+]

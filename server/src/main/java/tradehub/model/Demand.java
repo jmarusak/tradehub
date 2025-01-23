@@ -2,22 +2,22 @@ package tradehub.model;
 
 import java.util.List;
 
-public class Supply {
-  private String supplyId;
+public class Demand {
+  private String demandId;
   private String partyId;
   private String title;
   private Double price;
   private String description;
   private List<Float> embedding;
 
-  public Supply(
-      String supplyId,
+  public Demand(
+      String demandId,
       String partyId,
       String title,
       Double price,
       String description,
       List<Float> embedding) {
-    this.supplyId = supplyId;
+    this.demandId = demandId;
     this.partyId = partyId;
     this.title = title;
     this.price = price;
@@ -25,12 +25,12 @@ public class Supply {
     this.embedding = embedding;
   }
 
-  public String getSupplyId() {
-    return supplyId;
+  public String getDemandId() {
+    return demandId;
   }
 
-  public void setSupplyId(String supplyId) {
-    this.supplyId = supplyId;
+  public void setDemandId(String demandId) {
+    this.demandId = demandId;
   }
 
   public String getPartyId() {

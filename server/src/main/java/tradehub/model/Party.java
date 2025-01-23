@@ -3,12 +3,10 @@ package tradehub.model;
 public class Party {
   private String partyId;
   private String name;
-  private String email;
 
-  public Party(String partyId, String name, String email) {
+  public Party(String partyId, String name) {
     this.partyId = partyId;
     this.name = name;
-    this.email = email;
   }
 
   public String getPartyId() {
@@ -25,13 +23,5 @@ public class Party {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
   }
 }

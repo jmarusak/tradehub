@@ -7,50 +7,50 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tradehub.integration.BigQueryClient;
-import tradehub.model.Supply;
+import tradehub.model.Demand;
 
 @Service
-public class SupplyService {
+public class DemandService {
 
   @Autowired private BigQueryClient bqClient;
 
-  public void saveSupply(Supply supply) {
-    supply.setSupplyId(UUID.randomUUID().toString());
+  public void saveDemand(Demand demand) {
+    demand.setDemandId(UUID.randomUUID().toString());
 
     String stmt =
         String.format(
             """
-            INSERT INTO `tradehub.supply` (supply_id, party_id, title, price, description, embedding)
+            INSERT INTO `tradehub.demand` (demand_id, party_id, title, price, description, embedding)
             VALUES ('%s', '%s', '%s', %f, '%s', %s)
             """,
-            supply.getSupplyId(),
-            supply.getPartyId(),
-            supply.getTitle(),
-            supply.getPrice(),
-            supply.getDescription(),
-            supply.getEmbedding().toString());
+            demand.getDemandId(),
+            demand.getPartyId(),
+            demand.getTitle(),
+            demand.getPrice(),
+            demand.getDescription(),
+            demand.getEmbedding().toString());
 
     bqClient.execute(stmt);
   }
 
-  public List<Supply> getAllSupplies() {
-    TableResult result = bqClient.execute("SELECT * FROM tradehub.supply");
+  public List<Demand> getAllSupplies() {
+    TableResult result = bqClient.execute("SELECT * FROM tradehub.demand");
 
-    List<Supply> supplies = new ArrayList<>();
+    List<Demand> demands = new ArrayList<>();
     result
         .iterateAll()
         .forEach(
             row -> {
-              String supplyId = row.get("supply_id").getStringValue();
+              String demandId = row.get("demand_id").getStringValue();
               String partyId = row.get("party_id").getStringValue();
               String title = row.get("title").getStringValue();
               Double price = row.get("price").getDoubleValue();
               String description = row.get("description").getStringValue();
 
-              Supply supply = new Supply(supplyId, partyId, title, price, description, null);
-              supplies.add(supply);
+              Demand demand = new Demand(demandId, partyId, title, price, description, null);
+              demands.add(demand);
             });
 
-    return supplies;
+    return demands;
   }
 }
