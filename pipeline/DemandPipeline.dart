@@ -11,7 +11,7 @@ Future<List<dynamic>> extract(String filename) async {
 }
 
 Future<List<double>> transform(String endpoint, Map<String, String> jsonData) async {
-  final url = Uri.parse('$endpoint/embeddings');
+  final url = Uri.parse('$endpoint/embedding');
 
   Future<List<double>> embedding = Future.value([]);
   
@@ -40,7 +40,7 @@ Future<List<double>> transform(String endpoint, Map<String, String> jsonData) as
 }
 
 void load(String endpoint, Map<String, dynamic> row, List<double> embedding) async {
-  final url = Uri.parse('$endpoint/demands');
+  final url = Uri.parse('$endpoint/demand');
   
   final jsonData = {
     "demandId": "",

@@ -11,7 +11,7 @@ Future<List<dynamic>> extract(String filename) async {
 }
 
 void load(String endpoint, Map<String, dynamic> row) async {
-  final url = Uri.parse('$endpoint/parties');
+  final url = Uri.parse('$endpoint/party');
   
   final jsonData = {
     "partyId": row["partyId"],

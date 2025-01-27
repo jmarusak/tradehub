@@ -13,7 +13,7 @@ import tradehub.model.Prompt;
 import tradehub.service.EmbeddingService;
 
 @RestController
-@RequestMapping("/api/embeddings")
+@RequestMapping("/api/embedding")
 public class EmbeddingController {
   private static final Logger logger = LoggerFactory.getLogger(EmbeddingController.class);
 

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:tradehub/api.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,11 +18,13 @@ class MyApp extends StatelessWidget {
 }
 
 class ItemFormPage extends StatefulWidget {
+  const ItemFormPage({super.key});
+
   @override
-  _ItemFormPageState createState() => _ItemFormPageState();
+  ItemFormPageState createState() => ItemFormPageState();
 }
 
-class _ItemFormPageState extends State<ItemFormPage> {
+class ItemFormPageState extends State<ItemFormPage> {
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String itemTitle = '';
@@ -124,17 +129,26 @@ class _ItemFormPageState extends State<ItemFormPage> {
               SizedBox(height: 20),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                      // Process form data
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Form submitted successfully!')),
+                      
+                      final success = await Api.saveDemand(
+                        email: email,
+                        title: itemTitle,
+                        description: itemDescription,
+                        buySell: buySell,
                       );
-                      print('Email: $email');
-                      print('Item Title: $itemTitle');
-                      print('Item Description: $itemDescription');
-                      print('Buy/Sell: $buySell');
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            success 
+                              ? 'Form submitted successfully!' 
+                              : 'Failed to submit form. Please try again.'
+                          ),
+                        ),
+                      );
                     }
                   },
                   child: Text('Submit'),

@@ -13,7 +13,7 @@ import tradehub.model.Party;
 import tradehub.service.PartyService;
 
 @RestController
-@RequestMapping("/api/parties")
+@RequestMapping("/api/party")
 public class PartyController {
   private static final Logger logger = LoggerFactory.getLogger(PartyController.class);
 

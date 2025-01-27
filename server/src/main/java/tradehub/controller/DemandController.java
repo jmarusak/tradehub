@@ -13,7 +13,7 @@ import tradehub.model.Demand;
 import tradehub.service.DemandService;
 
 @RestController
-@RequestMapping("/api/demands")
+@RequestMapping("/api/demand")
 public class DemandController {
   private static final Logger logger = LoggerFactory.getLogger(DemandController.class);
 
